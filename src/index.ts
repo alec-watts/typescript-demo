@@ -96,8 +96,8 @@ let widget: UIWidget = {
   }
 }
 
-console.log(widget.drag());
-console.log(widget.resize());
+widget.drag();
+widget.resize();
 
 
 // Literal (exact, specific) types
@@ -106,4 +106,38 @@ let quantity: Quantity = 'one';
 
 type OddNumberUnderTen = 1 | 3 | 5 | 7 | 9;
 let oddNumber: OddNumberUnderTen = 1;
+
+
+// Nullable types
+const greet = (name: string | null | undefined) => {
+  if (name)
+    console.log(`Hello ${name.toUpperCase()}`);
+  else
+    console.log(`Hola!`);
+}
+
+greet('Steve');
+greet(null);
+greet(undefined);
+
+
+// Optional chaining
+type Customer = {
+  birthDay?: Date,
+}
+
+const getCustomer = (id: number): Customer | undefined => {
+  return id === 0 ? undefined : { birthDay: new Date() };
+}
+
+let customer = getCustomer(0);
+console.log(customer?.birthDay?.getFullYear());
+
+// Optional elements access operator
+// check if customers is null or undefined, if not, access the first element, then access the birthDay property
+// customers?.[0].birthDay
+
+// Optional call operator
+let log: any = null;
+log?.('Hello');
 

@@ -1,4 +1,5 @@
 "use strict";
+var _a;
 let age = 10;
 if (age < 50) {
     age += 10;
@@ -52,6 +53,24 @@ let widget = {
         console.log('resizing');
     }
 };
-console.log(widget.drag());
-console.log(widget.resize());
+widget.drag();
+widget.resize();
+let quantity = 'one';
+let oddNumber = 1;
+const greet = (name) => {
+    if (name)
+        console.log(`Hello ${name.toUpperCase()}`);
+    else
+        console.log(`Hola!`);
+};
+greet('Steve');
+greet(null);
+greet(undefined);
+const getCustomer = (id) => {
+    return id === 0 ? undefined : { birthDay: new Date() };
+};
+let customer = getCustomer(0);
+console.log((_a = customer === null || customer === void 0 ? void 0 : customer.birthDay) === null || _a === void 0 ? void 0 : _a.getFullYear());
+let log = null;
+log === null || log === void 0 ? void 0 : log('Hello');
 //# sourceMappingURL=index.js.map
