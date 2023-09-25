@@ -64,4 +64,46 @@ let employee: Employee = {
   }
 }
 
+
 // Unions
+const kgsToLbs = (weight: number | string) => {
+  if (typeof weight ===  'number')
+    return weight / 2.2;
+  else
+    return parseInt(weight) / 2.2;
+}
+console.log(kgsToLbs(10));
+console.log(kgsToLbs('10lbs'));
+
+
+// Intersection
+type Draggable = {
+  drag: () => void
+}
+
+type Resizable = {
+  resize: () => void
+}
+
+type UIWidget = Draggable & Resizable;
+
+let widget: UIWidget = {
+  drag: () => {
+    console.log('dragging');
+  },
+  resize: () => {
+    console.log('resizing');
+  }
+}
+
+console.log(widget.drag());
+console.log(widget.resize());
+
+
+// Literal (exact, specific) types
+type Quantity = 'one' | 'two' | 'three';
+let quantity: Quantity = 'one';
+
+type OddNumberUnderTen = 1 | 3 | 5 | 7 | 9;
+let oddNumber: OddNumberUnderTen = 1;
+

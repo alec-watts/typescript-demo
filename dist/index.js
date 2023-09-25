@@ -30,4 +30,28 @@ function calcululateTax(income, taxYear = 2022) {
 let first = calcululateTax(100, 2021);
 let second = calcululateTax(100);
 console.log(first, second);
+let employee = {
+    id: 1,
+    retire: (date) => {
+        console.log(date);
+    }
+};
+const kgsToLbs = (weight) => {
+    if (typeof weight === 'number')
+        return weight / 2.2;
+    else
+        return parseInt(weight) / 2.2;
+};
+console.log(kgsToLbs(10));
+console.log(kgsToLbs('10lbs'));
+let widget = {
+    drag: () => {
+        console.log('dragging');
+    },
+    resize: () => {
+        console.log('resizing');
+    }
+};
+console.log(widget.drag());
+console.log(widget.resize());
 //# sourceMappingURL=index.js.map
